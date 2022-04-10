@@ -56,6 +56,9 @@ static esp_err_t index_get_handler(httpd_req_t *req) {
     if (buf_len > 1) {
         buf = malloc(buf_len);
 
+        if (httpd_req_get_url_query_str(req, buf, buf_len) == ESP_OK) {
+            ESP_LOGI(TAG, "Found URL query => %s", buf);
+        }
         free(buf);
     }
 
