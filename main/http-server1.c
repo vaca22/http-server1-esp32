@@ -11,7 +11,7 @@
 #include "esp_netif.h"
 //#include "esp_eth.h"
 //#include "protocol_examples_common.h"
-
+#include "page.h"
 #include <esp_http_server.h>
 
 #define MY_DNS_IP_ADDR 0x08080808 // 8.8.8.8
@@ -80,7 +80,7 @@ httpd_handle_t start_webserver(void) {
     httpd_handle_t server = NULL;
     httpd_config_t config = HTTPD_DEFAULT_CONFIG();
 
-    const char *config_page_template = "fuck%d";
+    const char *config_page_template = PageX;
     int g=23;
     char *config_page = malloc(strlen(config_page_template)+512);
     sprintf(config_page, config_page_template,g);
